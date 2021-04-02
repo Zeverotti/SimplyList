@@ -10,13 +10,19 @@ function Form() {
         e.preventDefault();
         if(inputValue.length > 0){
             setInputValue("");
-            setTodos([...todos, {id: uuidv4(), name: inputValue}]);
-            console.log(todos);
+            const toInsert = [...todos, {id: uuidv4(), name: inputValue}];
+            window.localStorage.setItem('todos', JSON.stringify(toInsert));
+            setTodos(toInsert);
         }
         
     }
 
-    const [todos, setTodos] = useState([]);
+    if(window.localStorage.getItem('todos') === null) {
+        window.localStorage.setItem('todos', JSON.stringify([]));
+    }
+    const localStorage = JSON.parse(window.localStorage.getItem('todos'));
+
+    const [todos, setTodos] = useState(localStorage);
     const [inputValue, setInputValue] = useState("");
 
     const handleInput = (e) => {

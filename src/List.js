@@ -5,7 +5,8 @@ import Form from './Form';
 function List({ todos, onUpdate }) {
 
   const elimineit = (id) => {
-      onUpdate(todos.filter(e => e.id!=id));
+    window.localStorage.setItem('todos', JSON.stringify(todos.filter(e => e.id!=id)));
+    onUpdate(todos.filter(e => e.id!=id));
   }
 
   return (
