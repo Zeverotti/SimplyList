@@ -1,0 +1,21 @@
+ul{
+    list-style-type: none;
+    width: 200px;
+    align-items: center;
+    padding: 23px;
+    margin-top: 200px;
+    height: 100vh;
+}
+
+li{
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: rgb(255, 168, 97);
+    border-radius: 5px;
+
+}
+
+form{
+    position: absolute;
+    top: 20px;
+}
