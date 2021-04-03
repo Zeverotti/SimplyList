@@ -7,7 +7,12 @@ function App() {
   if(window.localStorage.getItem('todos') === null) {
     window.localStorage.setItem('todos', JSON.stringify([]));
   }
-  const localStorage = JSON.parse(window.localStorage.getItem('todos'));
+  let localStorage;
+  try {
+    localStorage = JSON.parse(window.localStorage.getItem('todos'));
+  } catch (error) {
+    localStorage = [];
+  }
   const [todos, setTodos] = useState(localStorage);
   return (
     <div className="App">
