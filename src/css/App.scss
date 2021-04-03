@@ -1,0 +1,15 @@
+.App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    .container {
+        width: 80%;
+        max-width: 800px;
+        display: flex;
+        justify-content: center;
+        padding: 30px 0px;
+    }
+    .inner-container {
+        width: 50%;
+    }
+}

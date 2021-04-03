@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import List from './List';
-import './Form.css';
+import '../css/Form.scss';
 import {v4 as uuidv4} from 'uuid'
 
 
-function Form() {
+function Form({ todos, setTodos }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,12 +16,6 @@ function Form() {
         
     }
 
-    if(window.localStorage.getItem('todos') === null) {
-        window.localStorage.setItem('todos', JSON.stringify([]));
-    }
-    const localStorage = JSON.parse(window.localStorage.getItem('todos'));
-
-    const [todos, setTodos] = useState(localStorage);
     const [inputValue, setInputValue] = useState("");
 
     const handleInput = (e) => {
@@ -30,12 +23,9 @@ function Form() {
     }
 
   return (
-      <div>
-        <form className="Form" onSubmit={handleSubmit}>
+    <form className="Form" onSubmit={handleSubmit}>
         <input className='SearchBar' onChange={handleInput} value={inputValue}></input>
-        </form>
-        <List todos={todos} onUpdate={setTodos}/>
-      </div>
+    </form>
   );
 }
 
