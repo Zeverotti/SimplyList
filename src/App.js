@@ -14,12 +14,17 @@ function App() {
     localStorage = [];
   }
   const [todos, setTodos] = useState(localStorage);
+  const clearAll = () => {
+    setTodos([]);
+    window.localStorage.setItem('todos', JSON.stringify([]));
+  }
   return (
     <div className="App">
       <div className="container">
         <div className="inner-container">
           <Form todos={todos} setTodos={setTodos} />
           <List todos={todos} onUpdate={setTodos} />
+          <p onClick={clearAll}>clear all</p>
         </div>
       </div>
     </div>
