@@ -5,8 +5,8 @@
     .container {
         width: 80%;
         max-width: 800px;
-        display: flex;
-        justify-content: center;
+        display: inherit;
+        justify-content: inherit;
         padding: 30px 0px;
     }
     .inner-container {
