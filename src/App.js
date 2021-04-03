@@ -24,7 +24,9 @@ function App() {
         <div className="inner-container">
           <Form todos={todos} setTodos={setTodos} />
           <List todos={todos} onUpdate={setTodos} />
-          <p onClick={clearAll}>clear all</p>
+          {todos.length > 0 && (
+            <p className="delete-all" onClick={clearAll}>clear all</p>
+          )}
         </div>
       </div>
     </div>
